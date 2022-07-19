@@ -1,0 +1,60 @@
+﻿@code {
+    private const string P1 = Players.P1;
+    private const string P2 = Players.P2;
+
+    private readonly static Random RND = new Random(0);
+    private readonly static string[][] INITIAL_BOARD =
+        Enumerable.Range(0, 3).Select(i => Enumerable.Range(0, 3).Select(j => string.Empty).ToArray()).ToArray();
+
+    private string[][] board = INITIAL_BOARD;
+    private string current = RND.Next(2) == 1 ? P1 : P2;
+    private WinResult? result = null;
+
+    private void HandleClick(int i, int j)
+    {
+        if (board[i][j] != string.Empty || result is not null) return;
+
+        board[i][j] = current;
+        current = current == P1 ? P2 : P1;
+
+        CheckWinner();
+    }
+
+    private void CheckWinner()
+    {
+        result = Checker.CheckBoard(board);
+        if (result is null) return;
+
+        foreach (var cell in result.Line)
+        {
+            board[cell[0]][cell[1]] = "🤩";
+        }
+    }
+}
+
+<div class="main">
+    @if (result is null)
+    {
+        <div>current player: <b>@current</b></div>
+    }
+    else
+    {
+        <div>winner: <b>@result.Player</b></div>
+    }
+
+    @for (int i = 0; i < board.Length; i++)
+    {
+        var row = board[i];
+        var ii = i;
+        <div @key="@($"row-{i}")" class="row">
+            @for (int j = 0; j < row.Length; j++)
+            {
+                var col = row[j];
+                var jj = j;
+                <div key="@($"col-{j}")" class="cell" @onclick="() => HandleClick(ii, jj)">@col</div>
+            }
+        </div>
+    }
+
+
+</div>

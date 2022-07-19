@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Blazor TicTacToe</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="BlazorTicTacToe.styles.css" rel="stylesheet" />
+    <style>
+        @keyframes lds-grid {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div style="display: inline-block; position: relative; width: 80px; height: 80px;">
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 8px; left: 8px; animation-delay: 0s;"></div>
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 8px; left: 32px; animation-delay: -0.4s;"></div>
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 8px; left: 56px; animation-delay: -0.8s;"></div>
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 32px; left: 8px; animation-delay: -0.4s;"></div>
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 32px; left: 32px; animation-delay: -0.8s;"></div>
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 32px; left: 56px; animation-delay: -1.2s;"></div>
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 56px; left: 8px; animation-delay: -0.8s;"></div>
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 56px; left: 32px; animation-delay: -1.2s;"></div>
+                <div style="position: absolute; width: 16px; height: 16px; border-radius: 50%; animation: lds-grid 1.2s linear infinite; background-color: blue; top: 56px; left: 56px; animation-delay: -1.6s;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>
